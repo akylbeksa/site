@@ -35,6 +35,8 @@
       --brand2: #b80000;
       --brand3: #ff6b6b;
       --brand4: #7a0000;
+      --ring: rgba(255,255,255,.10);
+      --softShadow: 0 22px 60px rgba(0,0,0,.55);
 
       --good: #22c55e;
       --warn: #f59e0b;
@@ -445,38 +447,57 @@
     }
 
     .v-circle{
-      position:absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      overflow: hidden;
-    }
-    .v-circle::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius: 999px;
-      background: radial-gradient(240px 170px at 28% 22%, rgba(255,255,255,.20), transparent 70%);
-      pointer-events:none;
-    }
+  position:absolute;
+  border-radius: 999px;
+  overflow: hidden;
+
+  border: 1px solid var(--ring);
+  box-shadow:
+    var(--softShadow),
+    0 0 40px rgba(255,45,45,.06);
+}
+
+/* стеклянный блик + лёгкий красный glow */
+.v-circle::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: 999px;
+  background:
+    radial-gradient(260px 190px at 28% 22%, rgba(255,255,255,.16), transparent 70%),
+    radial-gradient(320px 220px at 70% 78%, rgba(255,45,45,.08), transparent 75%);
+  pointer-events:none;
+}
 
     .v-circle.tam{
-      width: 390px; height: 390px;
-      left: 118px; top: -13px;
-      background: rgba(239, 68, 68, .55);
-      border-color: rgba(239, 68, 68, .38);
-    }
-    .v-circle.sam{
-      width: 285px; height: 285px;
-      left: 170.5px; top: 92px;
-      background: rgba(59, 130, 246, .45);
-      border-color: rgba(59, 130, 246, .33);
-    }
-    .v-circle.som{
-      width: 195px; height: 195px;
-      left: 215.5px; top: 182px;
-      background: rgba(34, 197, 94, .40);
-      border-color: rgba(34, 197, 94, .30);
-    }
+  width: 390px; height: 390px;
+  left: 118px; top: -13px;
+  background:
+    radial-gradient(320px 260px at 35% 30%, rgba(255,107,107,.20), transparent 70%),
+    radial-gradient(420px 320px at 70% 80%, rgba(184,0,0,.14), transparent 74%),
+    rgba(255,255,255,.035);
+  border-color: rgba(255,255,255,.12);
+}
+
+.v-circle.sam{
+  width: 285px; height: 285px;
+  left: 170.5px; top: 92px;
+  background:
+    radial-gradient(260px 210px at 35% 30%, rgba(255,45,45,.16), transparent 70%),
+    radial-gradient(320px 240px at 70% 80%, rgba(122,0,0,.18), transparent 74%),
+    rgba(255,255,255,.032);
+  border-color: rgba(255,45,45,.14);
+}
+
+.v-circle.som{
+  width: 195px; height: 195px;
+  left: 215.5px; top: 182px;
+  background:
+    radial-gradient(220px 170px at 35% 30%, rgba(184,0,0,.18), transparent 70%),
+    radial-gradient(260px 200px at 70% 80%, rgba(90,0,0,.22), transparent 74%),
+    rgba(255,255,255,.03);
+  border-color: rgba(255,45,45,.12);
+}
 
     .v-label{
       position:absolute;
